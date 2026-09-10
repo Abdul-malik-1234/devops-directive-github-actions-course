@@ -1,0 +1,26 @@
+name: Directed-Acyclic-Graph
+on:
+  workflow_dispatch:
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Hello from Ubuntu machine Job1 :)"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "Hello from Ubuntu machine Job2 :)"
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello from Ubuntu machine Job3 :)"
+    needs:
+      - job1
+      - job2
+  job4:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello from Ubuntu machine Job3 :)"
+    needs:
+      - job2
+      - job3
